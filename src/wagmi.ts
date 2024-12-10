@@ -9,7 +9,7 @@ import {
 
 export const config = getDefaultConfig({
   appName: 'Wallet Demo',
-  projectId: '936ce227c0152a29bdeef7d68794b0ac',
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || '',
   chains: [
     mainnet,
     polygon,
