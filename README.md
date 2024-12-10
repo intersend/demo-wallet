@@ -1,12 +1,12 @@
 # Demo Wallet with Intersend Apps
 
-A demonstration wallet showcasing how to integrate dApps directly into your wallet interface using Universal Portability SDK powered by Intersend.
+A demonstration wallet showcasing how to integrate dApps directly into your wallet interface with Intersend.
 
 ## Overview
 
 This demo wallet shows how wallet providers can transform their wallets into powerful Web3 gateways by embedding popular dApps directly into their interface. Built with Next.js, Wagmi, and Universal Portability SDK.
 
-Check all the available apps you can add to your wallet on [Intersend](https://app.intersend.io/apps)
+Check all the available apps you can add to your wallet on [Intersend](https://app.intersend.io/apps).
 
 Key Features:
 - 🔌 Seamless dApp Integration
@@ -100,6 +100,8 @@ function App() {
 ```
 
 3. Implement message handlers and port components as shown in the demo code.
+
+For detailed integration documentation, visit our [Developer Documentation](https://intersend.mintlify.app/overview-waas).
 
 ## Security
 
