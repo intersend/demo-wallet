@@ -42,9 +42,9 @@ yarn install
 ```bash
 cp .env.example .env.local
 ```
-Edit `.env.local` and add your RPC URL:
+Edit `.env.local` and add your WalletConnect project ID.
 ```
-NEXT_PUBLIC_RPC_URL=your_rpc_url_here
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_walletconnect_projectid_here
 ```
 
 4. Run the development server:
