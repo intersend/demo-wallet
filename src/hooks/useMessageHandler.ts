@@ -37,6 +37,8 @@ export function useMessageHandler({
             break;
 
           case "SIGN_MESSAGE_REQUEST":
+            // IMPLEMENT YOUR OWN SIGN MESSAGE LOGIC
+            // BELOW IS AN EXAMPLE IMPLEMENTATION USING WAGMI
             try {
               if (!payload.message) {
                 throw new Error("No message provided for signing");
@@ -76,6 +78,8 @@ export function useMessageHandler({
             break;
 
           case "TRANSACTION_REQUEST":
+            // IMPLEMENT YOUR OWN TRANSACTION HANDLING LOGIC HERE
+            // BELOW IS AN EXAMPLE IMPLEMENTATION USING WAGMI
             try {
               const txHash = await sendTransaction(config, {
                 ...payload.params,
@@ -110,22 +114,21 @@ export function useMessageHandler({
               // IMPLEMENT YOUR OWN CHAIN SWITCH LOGIC HERE
               // BELOW IS AN EXAMPLE IMPLEMENTATION USING WAGMI
 
-              if (payload.chainId === chainId) {
+              if (payload.chainId != chainId) {
                 await switchChain({ chainId: payload.chainId });
-                return;
-              }
 
-              sendMessageToIFrame(
-                {
-                  type: "SWITCH_CHAIN_RESPONSE",
-                  payload: {
-                    success: true,
-                    chainId: payload.chainId,
-                    rpcUrl: payload.rpcUrl,
+                sendMessageToIFrame(
+                  {
+                    type: "SWITCH_CHAIN_RESPONSE",
+                    payload: {
+                      success: true,
+                      chainId: payload.chainId,
+                      rpcUrl: payload.rpcUrl,
+                    },
                   },
-                },
-                requestId
-              );
+                  requestId
+                );
+              }
             } catch (error: any) {
               sendMessageToIFrame(
                 {
