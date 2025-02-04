@@ -15,14 +15,14 @@ const AppPage = () => {
   usePortHandler();
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
-      {/* Header */}
-      <nav className="bg-[#1a1a1a] border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <div className="min-h-screen bg-white">
+      {/* MetaMask-style header */}
+      <nav className="bg-white border-b border-gray-200">
+        <div className="max-w-[420px] mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/">
             <motion.button 
-              whileHover={{ x: -5 }}
-              className="text-gray-400 hover:text-white flex items-center gap-2"
+              whileHover={{ x: -2 }}
+              className="text-[#037DD6] flex items-center gap-2"
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg"
