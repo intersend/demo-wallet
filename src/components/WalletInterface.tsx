@@ -82,7 +82,9 @@ export function WalletInterface() {
           </div>
           <h1 className="text-4xl font-bold text-white mb-4">Welcome to Universal Wallet by Intersend</h1>
           <p className="text-white/80 mb-8">A replica wallet to demonstrate how Intersend experience feels like</p>
-          <ConnectButton />
+          <div className="flex items-center justify-center">
+            <ConnectButton />
+          </div>
         </motion.div>
       </div>
     );
