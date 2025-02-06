@@ -65,31 +65,6 @@ export function WalletInterface() {
     ]
   };
 
-  if (!address) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-[#037DD6] to-[#1a5f9c] flex items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center"
-        >
-          <div className="w-32 h-32 mx-auto mb-8 bg-white rounded-full flex items-center justify-center shadow-lg">
-            <svg className="w-20 h-20 text-[#037DD6]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M3 10H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <h1 className="text-4xl font-bold text-white mb-4">Welcome to Universal Wallet by Intersend</h1>
-          <p className="text-white/80 mb-8">A replica wallet to demonstrate how Intersend experience feels like</p>
-          <div className="flex items-center justify-center">
-            <ConnectButton />
-          </div>
-        </motion.div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#24272A]">
       {/* MetaMask-style header */}
@@ -110,116 +85,124 @@ export function WalletInterface() {
 
       <main className="max-w-[420px] mx-auto px-4 py-6">
         {/* Account Balance Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-6"
-        >
-          <h2 className="text-3xl font-bold mb-2">{walletData.dollarValue}</h2>
-          <p className="text-gray-600">{walletData.mainBalance}</p>
-          <p className="text-gray-400 text-xs mt-1 italic">Note: All numbers and data shown are for demonstration purposes only</p>
-          
-          {/* Action Buttons */}
-          <div className="flex justify-center gap-4 mt-6">
-            <button className="bg-[#037DD6] text-white px-6 py-2 rounded-full flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-              Send
-            </button>
-            <button className="bg-[#037DD6] text-white px-6 py-2 rounded-full flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-              </svg>
-              Receive
-            </button>
-            <button className="bg-[#037DD6] text-white px-6 py-2 rounded-full flex items-center gap-2">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-              </svg>
-              Swap
-            </button>
-          </div>
-        </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-6"
+            >
+              <h2 className="text-3xl font-bold mb-2">{walletData.dollarValue}</h2>
+              <p className="text-gray-600">{walletData.mainBalance}</p>
+              <p className="text-gray-400 text-xs mt-1 italic">Note: All numbers and data shown are for demonstration purposes only</p>
+              
+              {/* Action Buttons */}
+              <div className="flex justify-center gap-4 mt-6">
+                <button 
+                  onClick={() => !address && document.querySelector<HTMLButtonElement>('.iekbcc0')?.click()}
+                  className={`bg-[#037DD6] text-white px-6 py-2 rounded-full flex items-center gap-2 ${!address && 'opacity-50'}`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                  Send
+                </button>
+                <button 
+                  onClick={() => !address && document.querySelector<HTMLButtonElement>('.iekbcc0')?.click()}
+                  className={`bg-[#037DD6] text-white px-6 py-2 rounded-full flex items-center gap-2 ${!address && 'opacity-50'}`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                  </svg>
+                  Receive
+                </button>
+                <button 
+                  onClick={() => !address && document.querySelector<HTMLButtonElement>('.iekbcc0')?.click()}
+                  className={`bg-[#037DD6] text-white px-6 py-2 rounded-full flex items-center gap-2 ${!address && 'opacity-50'}`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                  </svg>
+                  Swap
+                </button>
+              </div>
+            </motion.div>
 
-        {/* Tabs */}
-        <div className="flex border-b border-gray-200 mb-6">
-          <button
-            className={`flex-1 py-2 text-center ${activeTab === 'assets' ? 'border-b-2 border-[#037DD6] text-[#037DD6]' : 'text-gray-500'}`}
-            onClick={() => setActiveTab('assets')}
-          >
-            Assets
-          </button>
-          <button
-            className={`flex-1 py-2 text-center ${activeTab === 'activity' ? 'border-b-2 border-[#037DD6] text-[#037DD6]' : 'text-gray-500'}`}
-            onClick={() => setActiveTab('activity')}
-          >
-            Activity
-          </button>
-        </div>
-
-        {/* Assets Tab Content */}
-        {activeTab === 'assets' && (
-          <div className="space-y-4">
-            {walletData.tokens.map((token) => (
-              <motion.div
-                key={token.symbol}
-                whileHover={{ scale: 1.01 }}
-                className="bg-white border border-gray-200 rounded-lg p-4 flex items-center justify-between"
+            {/* Tabs */}
+            <div className="flex border-b border-gray-200 mb-6">
+              <button
+                className={`flex-1 py-2 text-center ${activeTab === 'assets' ? 'border-b-2 border-[#037DD6] text-[#037DD6]' : 'text-gray-500'} ${!address && 'opacity-50 cursor-not-allowed'}`}
+                onClick={() => address ? setActiveTab('assets') : document.querySelector<HTMLButtonElement>('.iekbcc0')?.click()}
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{token.icon}</span>
-                  <div>
-                    <h3 className="font-medium">{token.name}</h3>
-                    <p className="text-sm text-gray-500">{token.balance} {token.symbol}</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="font-medium">{token.dollarValue}</p>
-                  <p className={`text-sm ${token.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
-                    {token.change}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
-
-        {/* Activity Tab Content */}
-        {activeTab === 'activity' && (
-          <div className="space-y-4">
-            {walletData.recentActivity.map((activity, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.01 }}
-                className="bg-white border border-gray-200 rounded-lg p-4"
+                Assets
+              </button>
+              <button
+                className={`flex-1 py-2 text-center ${activeTab === 'activity' ? 'border-b-2 border-[#037DD6] text-[#037DD6]' : 'text-gray-500'} ${!address && 'opacity-50 cursor-not-allowed'}`}
+                onClick={() => address ? setActiveTab('activity') : document.querySelector<HTMLButtonElement>('.iekbcc0')?.click()}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <span className={`
-                      ${activity.type === 'Send' ? 'text-red-500' : ''}
-                      ${activity.type === 'Receive' ? 'text-green-500' : ''}
-                      ${activity.type === 'Swap' ? 'text-blue-500' : ''}
-                    `}>
-                      {activity.type}
-                    </span>
-                    <span className="text-gray-500">{activity.asset}</span>
-                  </div>
-                  <span className="text-sm text-gray-500">{activity.time}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-sm text-gray-600">{activity.hash}</p>
-                  <span className={`text-sm px-2 py-1 rounded ${
-                    activity.status === 'Confirmed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
-                  }`}>
-                    {activity.status}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
+                Activity
+              </button>
+            </div>
 
+            {/* Assets Tab Content */}
+            {activeTab === 'assets' && (
+              <div className={`space-y-4 ${!address && 'opacity-50'}`}>
+                {walletData.tokens.map((token) => (
+                  <motion.div
+                    key={token.symbol}
+                    whileHover={{ scale: 1.01 }}
+                    className="bg-white border border-gray-200 rounded-lg p-4 flex items-center justify-between"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{token.icon}</span>
+                      <div>
+                        <h3 className="font-medium">{token.name}</h3>
+                        <p className="text-sm text-gray-500">{token.balance} {token.symbol}</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="font-medium">{token.dollarValue}</p>
+                      <p className={`text-sm ${token.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                        {token.change}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+
+            {/* Activity Tab Content */}
+            {activeTab === 'activity' && (
+              <div className={`space-y-4 ${!address && 'opacity-50'}`}>
+                {walletData.recentActivity.map((activity, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.01 }}
+                    className="bg-white border border-gray-200 rounded-lg p-4"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className={`
+                          ${activity.type === 'Send' ? 'text-red-500' : ''}
+                          ${activity.type === 'Receive' ? 'text-green-500' : ''}
+                          ${activity.type === 'Swap' ? 'text-blue-500' : ''}
+                        `}>
+                          {activity.type}
+                        </span>
+                        <span className="text-gray-500">{activity.asset}</span>
+                      </div>
+                      <span className="text-sm text-gray-500">{activity.time}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <p className="text-sm text-gray-600">{activity.hash}</p>
+                      <span className={`text-sm px-2 py-1 rounded ${
+                        activity.status === 'Confirmed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
+                      }`}>
+                        {activity.status}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
         {/* dApps Section */}
         <div className="mt-8">
           <div className="flex items-center justify-between mb-6">

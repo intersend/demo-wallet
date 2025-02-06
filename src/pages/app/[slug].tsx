@@ -8,15 +8,23 @@ import Link from 'next/link';
 import { usePortableApps } from 'universal-portability';
 import { useState, useEffect } from 'react';
 import { App } from '../../types/app';
+import { useConnectModal } from '@rainbow-me/rainbowkit';
 
 const AppPage = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const { apps } = usePortableApps();
   const [currentApp, setCurrentApp] = useState<App | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { openConnectModal } = useConnectModal();
   
+  useEffect(() => {
+    if (!address && openConnectModal) {
+      openConnectModal();
+    }
+  }, [address, openConnectModal]);
+
   // enable postMessage communication with the iframe
   usePortHandler();
 
@@ -38,7 +46,7 @@ const AppPage = () => {
           screenshots: [],
           about: '',
           features: [],
-          developer: 'Unknown Developer',
+          developer: '',
           link: '',
           developer_website: '#',
           createdAt: new Date().toISOString(),
@@ -49,6 +57,8 @@ const AppPage = () => {
       }
     }
   }, [apps, slug]);
+
+  console.log('slug', slug);
 
   return (
     <div className="min-h-screen bg-[#F6F7F9]">
@@ -101,7 +111,6 @@ const AppPage = () => {
                 />
                 <div>
                   <h1 className="font-bold text-lg">{currentApp.name}</h1>
-                  <p className="text-sm text-gray-500">by {currentApp.developer}</p>
                 </div>
               </div>
               {/* <a
@@ -143,11 +152,11 @@ const AppPage = () => {
             </div>
           )}
 
-          {/* Port Component */}
+          {/* App Container */}
           <div className="relative">
             <Port
               src={`https://app.intersend.io/apps/${slug}`}
-              address={address}
+              address={address || ''}
               rpcUrl={'https://polygon-bor-rpc.publicnode.com'}
               height="600px"
               width="100%"
