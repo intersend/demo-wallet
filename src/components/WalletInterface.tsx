@@ -80,8 +80,8 @@ export function WalletInterface() {
               <path d="M3 10H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">Welcome to Universal Wallet by Intersend</h1>
-          <p className="text-white/80 mb-8">A replica wallet to demonstrate how Intersend experience feels like</p>
+          <h1 className="text-4xl font-bold text-white mb-4">Welcome to the Intersend Demo Wallet</h1>
+          <p className="text-white/80 mb-8">Experience Intersend from an end user’s perspective</p>
           <div className="flex items-center justify-center">
             <ConnectButton />
           </div>
@@ -94,7 +94,7 @@ export function WalletInterface() {
     <div className="min-h-screen bg-[#FFFFFF] text-[#24272A]">
       {/* MetaMask-style header */}
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-[420px] mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="max-w-[430px] mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-[#037DD6] rounded-full flex items-center justify-center">
               <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -108,7 +108,7 @@ export function WalletInterface() {
         </div>
       </nav>
 
-      <main className="max-w-[420px] mx-auto px-4 py-6">
+      <main className="max-w-[430px] mx-auto px-4 py-6">
         {/* Account Balance Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

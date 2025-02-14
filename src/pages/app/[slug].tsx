@@ -54,7 +54,7 @@ const AppPage = () => {
     <div className="min-h-screen bg-[#F6F7F9]">
       {/* MetaMask-style header */}
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-[420px] mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="max-w-[430px] mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/">
             <motion.button 
               whileHover={{ x: -2 }}
@@ -91,7 +91,7 @@ const AppPage = () => {
       {/* App Info Banner */}
       {currentApp && (
         <div className="bg-white border-b border-gray-200">
-          <div className="max-w-[420px] mx-auto px-4 py-3">
+          <div className="max-w-[430px] mx-auto px-4 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img
@@ -101,7 +101,7 @@ const AppPage = () => {
                 />
                 <div>
                   <h1 className="font-bold text-lg">{currentApp.name}</h1>
-                  <p className="text-sm text-gray-500">by {currentApp.developer}</p>
+                  <p className="text-sm text-gray-500">Powered by Intersend</p>
                 </div>
               </div>
               {/* <a
@@ -118,7 +118,7 @@ const AppPage = () => {
       )}
 
       {/* Port Component Container */}
-      <div className="max-w-[420px] mx-auto px-4 py-4">
+      <div className="max-w-[430px] mx-auto px-4 py-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -146,7 +146,7 @@ const AppPage = () => {
           {/* Port Component */}
           <div className="relative">
             <Port
-              src={`https://fd5a-142-115-84-241.ngrok-free.app/apps/${slug}`}
+              src={`https://app.intersend.io/apps/${slug}`}
               address={address}
               rpcUrl={'https://polygon-bor-rpc.publicnode.com'}
               height="600px"
