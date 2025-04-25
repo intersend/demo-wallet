@@ -37,3 +37,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 .env
+/react-native-conversion/node_modules
+/ReactNativeWallet/.expo
+/ReactNativeWallet/node_modules
